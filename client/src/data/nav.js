@@ -1,4 +1,4 @@
-// Central site + navigation data (drives the header mega-menu and footer)
+// Everything the header menus and footer need, kept in one place.
 
 export const site = {
   phone: '+91 98115 85877',
@@ -42,7 +42,7 @@ export const services = [
   }
 ];
 
-// pages whose "Services" nav item should show as active
+// Any of these should light up the Services menu item
 export const servicePaths = ['/services', ...services.map((s) => s.to)];
 
 export const valueChainGroups = [

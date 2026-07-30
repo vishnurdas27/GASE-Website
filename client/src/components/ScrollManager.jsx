@@ -1,10 +1,8 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-/**
- * Scrolls to top on route change, or to the #hash target when one is present
- * (so mega-menu deep links like /value-chain#esg land correctly).
- */
+// Jump to the top on every navigation, unless the URL points at an
+// anchor like /value-chain#esg, in which case scroll to that instead.
 export default function ScrollManager() {
   const { pathname, hash } = useLocation();
 

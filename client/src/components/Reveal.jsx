@@ -1,11 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
-/**
- * Scroll-reveal wrapper. Renders `as` (default div) with the `.reveal` class and
- * adds `.in` when it scrolls into view. Honours prefers-reduced-motion.
- *
- *   <Reveal as="h2" className="section__title" delay={80}>Title</Reveal>
- */
+// Fades content up as it scrolls into view.
+// Skips the animation if the user prefers reduced motion.
 export default function Reveal({ as: Tag = 'div', className = '', delay = 0, children, ...rest }) {
   const ref = useRef(null);
   const [shown, setShown] = useState(false);

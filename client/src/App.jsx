@@ -4,10 +4,10 @@ import Footer from './components/Footer.jsx';
 import ScrollManager from './components/ScrollManager.jsx';
 import BackToTop from './components/BackToTop.jsx';
 import Placeholder from './pages/Placeholder.jsx';
+import Home from './pages/Home.jsx';
 
-// Pages are built one per step; each replaces its Placeholder below.
+// Routes still waiting on their real page component.
 const PAGES = [
-  ['/', 'Home'],
   ['/about', 'About'],
   ['/services', 'Services'],
   ['/assessments', 'Assessments & Ratings'],
@@ -27,6 +27,7 @@ export default function App() {
       <Header />
       <main>
         <Routes>
+          <Route path="/" element={<Home />} />
           {PAGES.map(([path, title]) => (
             <Route key={path} path={path} element={<Placeholder title={title} />} />
           ))}

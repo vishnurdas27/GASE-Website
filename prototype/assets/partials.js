@@ -168,7 +168,7 @@
       '<div class="footer__legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></div>' +
     '</div></div>';
 
-  /* ---- Node export (used by the Figma single-file build) — harmless in the browser ---- */
+  /* ---- Lets build-figma.js require this markup from Node. Ignored in the browser. ---- */
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = { header: header, footer: footer, EMBLEM: EMBLEM };
   }

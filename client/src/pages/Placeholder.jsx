@@ -1,6 +1,6 @@
 import Reveal from '../components/Reveal.jsx';
 
-// Temporary page shell — replaced step by step as each real page is built.
+// Stand-in for pages that aren't built yet.
 export default function Placeholder({ title }) {
   return (
     <section className="section">
@@ -10,7 +10,7 @@ export default function Placeholder({ title }) {
           <h1 className="section__title">
             {title} <span className="grad">page</span>
           </h1>
-          <p className="section__sub">This page is built in an upcoming step.</p>
+          <p className="section__sub">This page is still being put together.</p>
         </Reveal>
       </div>
     </section>

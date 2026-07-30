@@ -1,5 +1,5 @@
-// GASE emblem — inline SVG recreation of the client logo (navy G/E + gold + leaves).
-// The .ring stroke is coloured via CSS so it can flip to white on dark backgrounds.
+// The GASE logo mark, redrawn as SVG.
+// .ring gets its colour from CSS so it can turn white on the dark footer.
 export default function Emblem() {
   return (
     <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">

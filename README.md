@@ -59,21 +59,21 @@ visually identical. Reusable classes live in `components.css`: `page-hero` · `s
 
 ## Routes
 
-| Route | Page | Status |
-|-------|------|--------|
-| `/` | Home | scaffolded |
-| `/about` | About | scaffolded |
-| `/services` | Services overview | scaffolded |
-| `/assessments` | Assessments & Ratings | scaffolded |
-| `/benchmarking` | Benchmarking | scaffolded |
-| `/recognition` | Recognition & Awards | scaffolded |
-| `/advisory` | Advisory & Consulting | scaffolded |
-| `/capability` | Capability Building & DOJO | scaffolded |
-| `/value-chain` | Value Chain | scaffolded |
-| `/industries` | Industries | scaffolded |
-| `/contact` | Contact | scaffolded |
+| Route | Page | Done |
+|-------|------|------|
+| `/` | Home | yes |
+| `/about` | About | |
+| `/services` | Services overview | |
+| `/assessments` | Assessments & Ratings | |
+| `/benchmarking` | Benchmarking | |
+| `/recognition` | Recognition & Awards | |
+| `/advisory` | Advisory & Consulting | |
+| `/capability` | Capability Building & DOJO | |
+| `/value-chain` | Value Chain | |
+| `/industries` | Industries | |
+| `/contact` | Contact | |
 
-Pages are built one per step, each replacing its placeholder.
+The rest still render a placeholder until their page component is written.
 
 ## Notes
 
