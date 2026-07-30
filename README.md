@@ -1,8 +1,44 @@
 # GASE — Global Alliance for Sustainable Excellence
 
-Multi-page marketing website for **GASE**, a platform nurturing sustainable excellence
-across the entire organizational value chain (assessments, benchmarking, advisory,
-recognition & awards). Brand-matched to the client's logo — navy + gold + leaf green.
+Full-stack marketing website for **GASE**, a business-excellence platform (assessments,
+benchmarking, advisory, capability building, recognition & awards) covering the entire
+organizational value chain.
+
+**Stack:** React (Vite) + React Router · Node + Express · plain CSS design system.
+
+## Structure
+
+```
+GASE/
+├─ client/                  React app (Vite)
+│  ├─ index.html
+│  ├─ vite.config.js        dev server :5174, proxies /api → :4000
+│  └─ src/
+│     ├─ main.jsx           entry (Router + global styles)
+│     ├─ App.jsx            routes + layout shell
+│     ├─ components/        Header (mega-menu), Footer, Reveal, BackToTop, …
+│     ├─ pages/             one component per route
+│     ├─ data/nav.js        nav / services / value-chain / industries data
+│     └─ styles/            global.css (design system) + components.css
+├─ server/                  Node + Express API
+│  └─ src/index.js          :4000 — /api/health (contact endpoint added later)
+├─ prototype/               original static site + Figma export (reference)
+├─ docs/                    client pitch kit (docx + pdf)
+└─ package.json             npm workspaces + dev scripts
+```
+
+## Run
+
+```bash
+npm install
+npm run dev
+```
+
+- Client → http://localhost:5174
+- API → http://localhost:4000/api/health
+
+Run individually with `npm run dev:client` / `npm run dev:server`.
+Production build: `npm run build` (outputs `client/dist`).
 
 ## Brand / design system
 
@@ -16,63 +52,32 @@ recognition & awards). Brand-matched to the client's logo — navy + gold + leaf
 
 Tagline: **"Building a Better Future Through Excellence"**
 
-## Pages
+The CSS is carried over from the approved static prototype, so the React build is
+visually identical. Reusable classes live in `components.css`: `page-hero` · `split` ·
+`feature-grid` · `steps` · `timeline` · `tabs` · `acc` · `ladder` · `bars` · `checks` ·
+`pills` · `strip` · `iconlist` · `band`.
 
-| File | Page | Signature element |
-|------|------|-------------------|
-| `index.html` | Home | Animated value-chain "orbit" hero |
-| `about.html` | About | Journey timeline, mission/vision, values |
-| `services.html` | Services overview | Service grid + "continuous loop" process |
-| `assessments.html` | Assessments & Ratings | 5-level maturity ladder, sample scorecard |
-| `benchmarking.html` | Benchmarking | Peer-positioning bars, tabbed approaches |
-| `recognition.html` | Recognition & Awards | Award-journey timeline, 6 specialties |
-| `advisory.html` | Advisory & Consulting | 4-phase engagement model |
-| `capability.html` | Capability & DOJO | Learning cycle, programs accordion |
-| `value-chain.html` | Value Chain | All 13 domains, deep-link anchors |
-| `industries.html` | Industries | 16 sectors, org types, coverage scale |
-| `contact.html` | Contact | Enquiry form, FAQ accordion |
+## Routes
 
-## Architecture
+| Route | Page | Status |
+|-------|------|--------|
+| `/` | Home | scaffolded |
+| `/about` | About | scaffolded |
+| `/services` | Services overview | scaffolded |
+| `/assessments` | Assessments & Ratings | scaffolded |
+| `/benchmarking` | Benchmarking | scaffolded |
+| `/recognition` | Recognition & Awards | scaffolded |
+| `/advisory` | Advisory & Consulting | scaffolded |
+| `/capability` | Capability Building & DOJO | scaffolded |
+| `/value-chain` | Value Chain | scaffolded |
+| `/industries` | Industries | scaffolded |
+| `/contact` | Contact | scaffolded |
 
-```
-index.html, *.html      # one file per page (content in <main>)
-styles.css              # core design system + homepage styles
-assets/
-  pages.css             # mega-menu + shared component library
-  partials.js           # injects header (mega-menu) + footer on every page
-script.js               # reveal, counters, bars, tabs, accordion, form
-```
+Pages are built one per step, each replacing its placeholder.
 
-- **Shared header/footer** are injected by `assets/partials.js` into
-  `<div id="site-header">` / `<footer id="site-footer">` on every page — edit the nav
-  or footer once, it updates everywhere. This mirrors a component model for an easy
-  future port to React/Next.js.
-- **Navigation** uses mega-menu dropdowns (hover on desktop, tap-to-accordion on
-  mobile ≤900px): About, Services (5 cards + aside), Value Chain (13 domains in
-  columns), Industries (sectors in columns).
-- **Active page** highlighting via `<body data-page="...">`.
+## Notes
 
-## Run locally
-
-```bash
-python -m http.server 8459   # then open http://localhost:8459
-# or:  npx serve .
-```
-
-No build step — plain HTML/CSS/JS. Must be served over HTTP (the shared
-header/footer are injected by JS; opening files directly also works from the same folder).
-
-## Reusable components (in `assets/pages.css`)
-
-`page-hero` · `split` (alternating feature) · `feature-grid` · `steps` (process) ·
-`timeline` · `tabs` · `acc` (accordion) · `ladder` (maturity) · `bars` (animated
-comparison) · `checks` · `pills` · `strip` (stats) · `iconlist` · `band` (CTA).
-
-## Notes / next steps
-
-- Fonts load from Google Fonts (Sora + Inter) — self-host for offline/perf if needed.
-- The contact form is front-end only (demo validation + confirmation). Wire it to a
-  backend / email service.
-- **Logo:** the emblem is a faithful inline-SVG recreation of the client logo. Drop the
-  official raster/vector into `assets/` and swap the `EMBLEM` constant in `partials.js`.
-- Replace placeholder email (`info@gase.global`) and the testimonials with real content.
+- **Logo:** the emblem is an inline-SVG recreation (`components/Emblem.jsx`). Swap in the
+  official asset when the client provides it.
+- Placeholder email `info@gase.global` and testimonials need real content.
+- Fonts load from Google Fonts; self-host if offline/perf matters.
