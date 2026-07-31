@@ -129,6 +129,12 @@
 .feature h3{font-size:1.15rem;color:var(--navy-900);margin-bottom:.5rem}
 .feature p{color:var(--slate);font-size:.96rem}
 .feature__num{position:absolute;top:1.2rem;right:1.4rem;font-family:var(--font-head);font-weight:800;font-size:1.6rem;color:var(--bg-mint)}
+/* dark "featured" feature card */
+.feature--dark{background:linear-gradient(160deg,var(--navy-800),var(--navy-900));border-color:transparent;color:#fff}
+.feature--dark h3{color:#fff}
+.feature--dark p{color:#bcd4ca}
+.feature--dark .feature__ico{background:rgba(212,175,55,.16);color:var(--gold-300)}
+.feature--dark .card__link{color:var(--gold-300)}
 .domain:target{border-color:var(--emerald-500);box-shadow:0 0 0 3px rgba(107,184,67,.28),var(--shadow-md);animation:targetPulse 1.4s ease}
 .domain:target::after{transform:scaleX(1)}
 @keyframes targetPulse{0%{box-shadow:0 0 0 0 rgba(107,184,67,.5),var(--shadow-md)}100%{box-shadow:0 0 0 3px rgba(107,184,67,.28),var(--shadow-md)}}

@@ -6,6 +6,7 @@ import BackToTop from './components/BackToTop.jsx';
 import Placeholder from './pages/Placeholder.jsx';
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
+import Services from './pages/Services.jsx';
 
 export default function App() {
   return (
@@ -17,9 +18,9 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
 
           {/* still to do */}
-          <Route path="/services" element={<Placeholder title="Services" />} />
           <Route path="/assessments" element={<Placeholder title="Assessments & Ratings" />} />
           <Route path="/benchmarking" element={<Placeholder title="Benchmarking" />} />
           <Route path="/recognition" element={<Placeholder title="Recognition & Awards" />} />
