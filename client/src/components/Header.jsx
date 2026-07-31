@@ -34,17 +34,17 @@ export default function Header() {
     setOpenMenu(null);
   }, [pathname]);
 
-  const isMobile = () => window.matchMedia('(max-width:900px)').matches;
+  // On mobile the menu buttons open an accordion.
+  // On desktop we leave it to the :hover rule in the CSS.
+  function toggleMenu(e, key) {
+    if (!window.matchMedia('(max-width:900px)').matches) return;
+    e.preventDefault();
+    setOpenMenu(openMenu === key ? null : key);
+  }
 
-  // On mobile the top-level button toggles an accordion; on desktop CSS :hover opens it.
-  const toggleMenu = (key) => (e) => {
-    if (isMobile()) {
-      e.preventDefault();
-      setOpenMenu((cur) => (cur === key ? null : key));
-    }
-  };
-
-  const active = (paths) => paths.some((p) => pathname === p || pathname.startsWith(p + '/'));
+  function isActive(paths) {
+    return paths.some((path) => pathname === path || pathname.startsWith(path + '/'));
+  }
 
   return (
     <div id="site-header">
@@ -80,17 +80,17 @@ export default function Header() {
           </Link>
 
           <nav className={`nav${navOpen ? ' open' : ''}`} id="nav">
-            <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')} end>
+            <NavLink to="/" className={(nav) => (nav.isActive ? 'active' : '')} end>
               Home
             </NavLink>
 
             {/* About */}
             <div className={`nav__item${openMenu === 'about' ? ' open' : ''}`}>
               <button
-                className={`nav__link${active(['/about']) ? ' active' : ''}`}
+                className={`nav__link${isActive(['/about']) ? ' active' : ''}`}
                 aria-haspopup="true"
                 aria-expanded={openMenu === 'about'}
-                onClick={toggleMenu('about')}
+                onClick={(e) => toggleMenu(e, 'about')}
               >
                 About <Caret />
               </button>
@@ -108,10 +108,10 @@ export default function Header() {
             {/* Services */}
             <div className={`nav__item${openMenu === 'services' ? ' open' : ''}`}>
               <button
-                className={`nav__link${active(servicePaths) ? ' active' : ''}`}
+                className={`nav__link${isActive(servicePaths) ? ' active' : ''}`}
                 aria-haspopup="true"
                 aria-expanded={openMenu === 'services'}
-                onClick={toggleMenu('services')}
+                onClick={(e) => toggleMenu(e, 'services')}
               >
                 Services <Caret />
               </button>
@@ -148,10 +148,10 @@ export default function Header() {
             {/* Value Chain */}
             <div className={`nav__item${openMenu === 'vc' ? ' open' : ''}`}>
               <button
-                className={`nav__link${active(['/value-chain']) ? ' active' : ''}`}
+                className={`nav__link${isActive(['/value-chain']) ? ' active' : ''}`}
                 aria-haspopup="true"
                 aria-expanded={openMenu === 'vc'}
-                onClick={toggleMenu('vc')}
+                onClick={(e) => toggleMenu(e, 'vc')}
               >
                 Value Chain <Caret />
               </button>
@@ -181,10 +181,10 @@ export default function Header() {
             {/* Industries */}
             <div className={`nav__item${openMenu === 'ind' ? ' open' : ''}`}>
               <button
-                className={`nav__link${active(['/industries']) ? ' active' : ''}`}
+                className={`nav__link${isActive(['/industries']) ? ' active' : ''}`}
                 aria-haspopup="true"
                 aria-expanded={openMenu === 'ind'}
-                onClick={toggleMenu('ind')}
+                onClick={(e) => toggleMenu(e, 'ind')}
               >
                 Industries <Caret />
               </button>

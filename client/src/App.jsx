@@ -6,34 +6,32 @@ import BackToTop from './components/BackToTop.jsx';
 import Placeholder from './pages/Placeholder.jsx';
 import Home from './pages/Home.jsx';
 
-// Routes still waiting on their real page component.
-const PAGES = [
-  ['/about', 'About'],
-  ['/services', 'Services'],
-  ['/assessments', 'Assessments & Ratings'],
-  ['/benchmarking', 'Benchmarking'],
-  ['/recognition', 'Recognition & Awards'],
-  ['/advisory', 'Advisory & Consulting'],
-  ['/capability', 'Capability Building & DOJO'],
-  ['/value-chain', 'Value Chain'],
-  ['/industries', 'Industries'],
-  ['/contact', 'Contact']
-];
-
 export default function App() {
   return (
     <>
       <ScrollManager />
       <Header />
+
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          {PAGES.map(([path, title]) => (
-            <Route key={path} path={path} element={<Placeholder title={title} />} />
-          ))}
+
+          {/* still to do */}
+          <Route path="/about" element={<Placeholder title="About" />} />
+          <Route path="/services" element={<Placeholder title="Services" />} />
+          <Route path="/assessments" element={<Placeholder title="Assessments & Ratings" />} />
+          <Route path="/benchmarking" element={<Placeholder title="Benchmarking" />} />
+          <Route path="/recognition" element={<Placeholder title="Recognition & Awards" />} />
+          <Route path="/advisory" element={<Placeholder title="Advisory & Consulting" />} />
+          <Route path="/capability" element={<Placeholder title="Capability Building & DOJO" />} />
+          <Route path="/value-chain" element={<Placeholder title="Value Chain" />} />
+          <Route path="/industries" element={<Placeholder title="Industries" />} />
+          <Route path="/contact" element={<Placeholder title="Contact" />} />
+
           <Route path="*" element={<Placeholder title="Page not found" />} />
         </Routes>
       </main>
+
       <Footer />
       <BackToTop />
     </>

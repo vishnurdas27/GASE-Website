@@ -1,48 +1,46 @@
 import { useEffect, useRef, useState } from 'react';
 
-// Counts up from zero once the number scrolls into view.
+// Counts up from 0 when the number scrolls into view.
 export default function Counter({ to = 0, prefix = '', suffix = '', duration = 1600, className }) {
   const ref = useRef(null);
   const [value, setValue] = useState(0);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce || !('IntersectionObserver' in window)) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setValue(to);
       return;
     }
 
-    let raf;
-    const run = () => {
+    let frame;
+
+    function animate() {
       const start = performance.now();
-      const step = (now) => {
-        const p = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - p, 3); // ease out, fast start then settle
+
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3); // starts quick, slows at the end
         setValue(Math.round(eased * to));
-        if (p < 1) raf = requestAnimationFrame(step);
-      };
-      raf = requestAnimationFrame(step);
-    };
+        if (progress < 1) frame = requestAnimationFrame(tick);
+      }
+
+      frame = requestAnimationFrame(tick);
+    }
 
     const io = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            run();
-            obs.unobserve(e.target);
-          }
-        });
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          animate();
+          io.disconnect();
+        }
       },
       { threshold: 0.6 }
     );
-    io.observe(el);
+
+    io.observe(ref.current);
 
     return () => {
       io.disconnect();
-      if (raf) cancelAnimationFrame(raf);
+      cancelAnimationFrame(frame);
     };
   }, [to, duration]);
 
