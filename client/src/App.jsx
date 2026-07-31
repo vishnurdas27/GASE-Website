@@ -5,6 +5,7 @@ import ScrollManager from './components/ScrollManager.jsx';
 import BackToTop from './components/BackToTop.jsx';
 import Placeholder from './pages/Placeholder.jsx';
 import Home from './pages/Home.jsx';
+import About from './pages/About.jsx';
 
 export default function App() {
   return (
@@ -15,9 +16,9 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
 
           {/* still to do */}
-          <Route path="/about" element={<Placeholder title="About" />} />
           <Route path="/services" element={<Placeholder title="Services" />} />
           <Route path="/assessments" element={<Placeholder title="Assessments & Ratings" />} />
           <Route path="/benchmarking" element={<Placeholder title="Benchmarking" />} />

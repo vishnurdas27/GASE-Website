@@ -112,6 +112,9 @@
 .gcard::after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(107,184,67,.35),transparent 65%);top:-60px;right:-60px}
 .gcard--light{background:#fff;color:var(--navy-900);border:1px solid var(--line)}
 .gcard--light::after{background:radial-gradient(circle,rgba(107,184,67,.18),transparent 65%)}
+.gcard__title{position:relative;z-index:1;font-family:var(--font-head);font-size:1.4rem;margin-bottom:1rem}
+.gcard__text{position:relative;z-index:1;color:#cfe0da}
+.gcard__rule{position:relative;z-index:1;border:none;border-top:1px solid rgba(255,255,255,.14);margin:1.5rem 0}
 
 /* ============ FEATURE GRID ============ */
 .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
