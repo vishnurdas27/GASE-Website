@@ -8,6 +8,7 @@ import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import Services from './pages/Services.jsx';
 import Assessments from './pages/Assessments.jsx';
+import Benchmarking from './pages/Benchmarking.jsx';
 
 export default function App() {
   return (
@@ -21,9 +22,9 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/assessments" element={<Assessments />} />
+          <Route path="/benchmarking" element={<Benchmarking />} />
 
           {/* still to do */}
-          <Route path="/benchmarking" element={<Placeholder title="Benchmarking" />} />
           <Route path="/recognition" element={<Placeholder title="Recognition & Awards" />} />
           <Route path="/advisory" element={<Placeholder title="Advisory & Consulting" />} />
           <Route path="/capability" element={<Placeholder title="Capability Building & DOJO" />} />

@@ -122,6 +122,8 @@
 .scorecard__score{font-family:var(--font-head);font-weight:800;font-size:3.4rem;color:var(--emerald-700);line-height:1;margin:.4rem 0}
 .scorecard__score span{font-size:1.4rem;color:var(--muted)}
 .scorecard__caption{color:var(--slate);margin-bottom:1.4rem}
+.scorecard__note{color:var(--muted);font-size:.85rem;margin-top:1.2rem}
+.scorecard__note b{color:var(--emerald-700)}
 
 /* ============ FEATURE GRID ============ */
 .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
