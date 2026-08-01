@@ -7,6 +7,7 @@ import Placeholder from './pages/Placeholder.jsx';
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import Services from './pages/Services.jsx';
+import Assessments from './pages/Assessments.jsx';
 
 export default function App() {
   return (
@@ -19,9 +20,9 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/assessments" element={<Assessments />} />
 
           {/* still to do */}
-          <Route path="/assessments" element={<Placeholder title="Assessments & Ratings" />} />
           <Route path="/benchmarking" element={<Placeholder title="Benchmarking" />} />
           <Route path="/recognition" element={<Placeholder title="Recognition & Awards" />} />
           <Route path="/advisory" element={<Placeholder title="Advisory & Consulting" />} />

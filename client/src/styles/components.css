@@ -90,6 +90,8 @@
 .page-hero__meta b{font-family:var(--font-head);font-size:1.7rem;font-weight:800;color:#fff;line-height:1}
 .page-hero__meta span{font-size:.8rem;color:#9fc0b2;margin-top:.3rem}
 .page-hero__wave{position:absolute;left:0;right:0;bottom:-1px;height:60px;background:var(--bg);clip-path:polygon(0 60%,20% 45%,42% 58%,63% 44%,82% 57%,100% 46%,100% 100%,0 100%)}
+.page-hero__actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem}
+.page-hero.center .page-hero__actions{justify-content:center}
 
 /* ============ SECTION HELPERS ============ */
 .lead{font-size:1.12rem;color:var(--slate);max-width:60ch}
@@ -115,6 +117,11 @@
 .gcard__title{position:relative;z-index:1;font-family:var(--font-head);font-size:1.4rem;margin-bottom:1rem}
 .gcard__text{position:relative;z-index:1;color:#cfe0da}
 .gcard__rule{position:relative;z-index:1;border:none;border-top:1px solid rgba(255,255,255,.14);margin:1.5rem 0}
+/* sample maturity scorecard (inside a light gcard) */
+.scorecard__label{font-family:var(--font-head);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-600)}
+.scorecard__score{font-family:var(--font-head);font-weight:800;font-size:3.4rem;color:var(--emerald-700);line-height:1;margin:.4rem 0}
+.scorecard__score span{font-size:1.4rem;color:var(--muted)}
+.scorecard__caption{color:var(--slate);margin-bottom:1.4rem}
 
 /* ============ FEATURE GRID ============ */
 .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
