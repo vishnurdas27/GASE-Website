@@ -117,6 +117,7 @@
 .gcard__title{position:relative;z-index:1;font-family:var(--font-head);font-size:1.4rem;margin-bottom:1rem}
 .gcard__text{position:relative;z-index:1;color:#cfe0da}
 .gcard__rule{position:relative;z-index:1;border:none;border-top:1px solid rgba(255,255,255,.14);margin:1.5rem 0}
+.gcard__label{position:relative;z-index:1;font-family:var(--font-head);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-300)}
 /* sample maturity scorecard (inside a light gcard) */
 .scorecard__label{font-family:var(--font-head);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-600)}
 .scorecard__score{font-family:var(--font-head);font-weight:800;font-size:3.4rem;color:var(--emerald-700);line-height:1;margin:.4rem 0}
@@ -236,6 +237,10 @@
 .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center}
 .strip .stat__num{font-family:var(--font-head);font-weight:800;font-size:clamp(2rem,4vw,2.9rem);color:var(--emerald-700);line-height:1;display:block}
 .strip span{color:var(--muted);font-size:.92rem;margin-top:.5rem;display:block}
+/* strip sitting inside a dark gcard */
+.strip--card{position:relative;z-index:1;grid-template-columns:1fr 1fr;gap:1.4rem;text-align:left;margin-top:1.2rem}
+.strip--card .stat__num{color:#fff}
+.strip--card span{color:#bcd4ca}
 
 /* ============ ICON LIST CARD ============ */
 .iconlist{display:grid;gap:1.1rem}

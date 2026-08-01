@@ -10,6 +10,7 @@ import Services from './pages/Services.jsx';
 import Assessments from './pages/Assessments.jsx';
 import Benchmarking from './pages/Benchmarking.jsx';
 import Recognition from './pages/Recognition.jsx';
+import Advisory from './pages/Advisory.jsx';
 
 export default function App() {
   return (
@@ -25,9 +26,9 @@ export default function App() {
           <Route path="/assessments" element={<Assessments />} />
           <Route path="/benchmarking" element={<Benchmarking />} />
           <Route path="/recognition" element={<Recognition />} />
+          <Route path="/advisory" element={<Advisory />} />
 
           {/* still to do */}
-          <Route path="/advisory" element={<Placeholder title="Advisory & Consulting" />} />
           <Route path="/capability" element={<Placeholder title="Capability Building & DOJO" />} />
           <Route path="/value-chain" element={<Placeholder title="Value Chain" />} />
           <Route path="/industries" element={<Placeholder title="Industries" />} />
