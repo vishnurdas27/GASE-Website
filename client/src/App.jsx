@@ -11,6 +11,7 @@ import Assessments from './pages/Assessments.jsx';
 import Benchmarking from './pages/Benchmarking.jsx';
 import Recognition from './pages/Recognition.jsx';
 import Advisory from './pages/Advisory.jsx';
+import Capability from './pages/Capability.jsx';
 
 export default function App() {
   return (
@@ -27,9 +28,9 @@ export default function App() {
           <Route path="/benchmarking" element={<Benchmarking />} />
           <Route path="/recognition" element={<Recognition />} />
           <Route path="/advisory" element={<Advisory />} />
+          <Route path="/capability" element={<Capability />} />
 
           {/* still to do */}
-          <Route path="/capability" element={<Placeholder title="Capability Building & DOJO" />} />
           <Route path="/value-chain" element={<Placeholder title="Value Chain" />} />
           <Route path="/industries" element={<Placeholder title="Industries" />} />
           <Route path="/contact" element={<Placeholder title="Contact" />} />

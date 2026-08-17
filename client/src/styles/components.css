@@ -116,6 +116,8 @@
 .gcard--light::after{background:radial-gradient(circle,rgba(107,184,67,.18),transparent 65%)}
 .gcard__title{position:relative;z-index:1;font-family:var(--font-head);font-size:1.4rem;margin-bottom:1rem}
 .gcard__text{position:relative;z-index:1;color:#cfe0da}
+.gcard__text + .gcard__text{margin-top:1rem}
+.gcard__emoji{position:relative;z-index:1;font-size:2.6rem}
 .gcard__rule{position:relative;z-index:1;border:none;border-top:1px solid rgba(255,255,255,.14);margin:1.5rem 0}
 .gcard__label{position:relative;z-index:1;font-family:var(--font-head);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-300)}
 /* sample maturity scorecard (inside a light gcard) */
