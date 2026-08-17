@@ -89,6 +89,7 @@ svg.ico{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2;stroke
 .btn--ghost:hover{background:rgba(255,255,255,.16);transform:translateY(-3px)}
 .btn--sm{padding:.7rem 1.15rem;font-size:.88rem}
 .btn--full{width:100%;justify-content:center}
+.btn:disabled{opacity:.65;cursor:not-allowed}
 
 /* ---------- Topbar ---------- */
 .topbar{background:var(--navy-900);color:#cfe6dc;font-size:.82rem}

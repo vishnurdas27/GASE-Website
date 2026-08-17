@@ -10,19 +10,19 @@ const emptyForm = {
   msg: ''
 };
 
-// Enquiry form. Only checks the fields in the browser for now.
-// TODO: post this to /api/contact once the backend route is ready.
-export default function ContactForm({ className = 'cta__form' }) {
+// Enquiry form. Checks the fields in the browser, then posts to /api/contact.
+export default function ContactForm({ className = 'cta__form', submitLabel = 'Request Assessment' }) {
   const [values, setValues] = useState(emptyForm);
   const [message, setMessage] = useState('');
   const [isError, setIsError] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   function handleChange(e) {
     const { name, value } = e.target;
     setValues((prev) => ({ ...prev, [name]: value }));
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     const emailLooksOk = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(values.email.trim());
@@ -33,10 +33,32 @@ export default function ContactForm({ className = 'cta__form' }) {
       return;
     }
 
-    const firstName = values.name.trim().split(' ')[0];
-    setIsError(false);
-    setMessage(`Thank you, ${firstName}! Our excellence advisors will be in touch shortly.`);
-    setValues(emptyForm);
+    setSubmitting(true);
+    setMessage('');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values)
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        setIsError(true);
+        setMessage(data.error || 'Something went wrong. Please try again.');
+        return;
+      }
+
+      setIsError(false);
+      setMessage(data.message);
+      setValues(emptyForm);
+    } catch (err) {
+      setIsError(true);
+      setMessage('Could not reach the server. Please try again or call us directly.');
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -114,8 +136,8 @@ export default function ContactForm({ className = 'cta__form' }) {
         />
       </div>
 
-      <button type="submit" className="btn btn--primary btn--full">
-        Request Assessment
+      <button type="submit" className="btn btn--primary btn--full" disabled={submitting}>
+        {submitting ? 'Sending…' : submitLabel}
       </button>
 
       <p className="form__note" role="status" style={isError ? { color: '#c0392b' } : undefined}>
