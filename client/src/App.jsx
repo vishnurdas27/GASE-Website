@@ -13,6 +13,7 @@ import Recognition from './pages/Recognition.jsx';
 import Advisory from './pages/Advisory.jsx';
 import Capability from './pages/Capability.jsx';
 import ValueChain from './pages/ValueChain.jsx';
+import Industries from './pages/Industries.jsx';
 
 export default function App() {
   return (
@@ -31,9 +32,9 @@ export default function App() {
           <Route path="/advisory" element={<Advisory />} />
           <Route path="/capability" element={<Capability />} />
           <Route path="/value-chain" element={<ValueChain />} />
+          <Route path="/industries" element={<Industries />} />
 
           {/* still to do */}
-          <Route path="/industries" element={<Placeholder title="Industries" />} />
           <Route path="/contact" element={<Placeholder title="Contact" />} />
 
           <Route path="*" element={<Placeholder title="Page not found" />} />
