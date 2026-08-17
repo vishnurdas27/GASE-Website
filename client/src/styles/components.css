@@ -99,6 +99,9 @@
 .eyebrow--dark{color:var(--emerald-700)}
 .section--tint{background:var(--bg-soft)}
 .section--mint{background:var(--bg-mint)}
+/* left-aligned section head used for the value-chain clusters */
+.section__head--left{max-width:none;margin-inline:0;text-align:left;margin-bottom:2.2rem}
+.section__head--left .section__title{font-size:clamp(1.5rem,2.6vw,2rem)}
 .divider-top{border-top:1px solid var(--line)}
 
 /* ============ SPLIT FEATURE ============ */
